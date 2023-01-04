@@ -3,7 +3,7 @@ An ESPHome custom sensor component for the HP303B barometric pressure sensor.
 
 An example of how to use this file is below:
 
-But fist move the hp303b.h file to the esphome folder in HA.
+But first move the hp303b.h file to the esphome folder in HA.
 
 ```yaml
 esphome:
