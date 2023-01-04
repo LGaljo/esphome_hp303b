@@ -31,7 +31,7 @@ class HP303BSensor : public PollingComponent {
 
     ESP_LOGD(TAGhp, "Got pressure=%.1f hPa", pressure / 100.0);
     ESP_LOGD(TAGhp, "Got temperature=%.1f °C", temperature);
-    temperature_sensor->publish_state(pressure / 100.0); 
+    pressure_sensor->publish_state(pressure / 100.0); 
     temperature_sensor->publish_state(temperature); 
   }
 };
