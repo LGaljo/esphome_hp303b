@@ -1,5 +1,6 @@
 # esphome_hp303b
 An ESPHome custom sensor component for the HP303B barometric pressure sensor.
+You can customize pooling rate in constructor new HP303BSensor(20000) - currently 20s.
 
 An example of how to use this file is below:
 
