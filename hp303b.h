@@ -13,7 +13,7 @@ class HP303BSensor : public PollingComponent {
   int32_t pressure;
   int32_t temperature;
 
-  HP303BSensor() : PollingComponent(100000) { }
+  HP303BSensor(int32_t pooling_rate) : PollingComponent(pooling_rate) { }
 
   void setup() override {
     ESP_LOGCONFIG(TAGhp, "Setting up HP303B...");
