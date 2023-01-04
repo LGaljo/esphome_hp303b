@@ -23,11 +23,11 @@ esp8266:
 sensor:
   - platform: custom
     lambda: |-
-      auto my_sensor = new HP303BSensor();
+      auto my_sensor = new HP303BSensor(20000);
       App.register_component(my_sensor);
       return {my_sensor->temperature_sensor, my_sensor->pressure_sensor};
     sensors:
-    - name: "Temperature"
+    - name: "Temperature 2"
       unit_of_measurement: °C
       accuracy_decimals: 2
     - name: "Barometric Pressure"
