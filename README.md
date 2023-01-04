@@ -3,28 +3,36 @@ An ESPHome custom sensor component for the HP303B barometric pressure sensor.
 
 An example of how to use this file is below:
 
+But fist move the hp303b.h file to the esphome folder in HA.
+
 ```yaml
 esphome:
-  name: barometric_pressure_sample
-  platform: ESP8266
-  board: d1_mini
+  name: esp-environment
   libraries:
-    - "wemos/LOLIN_HP303B_Library" # lib from github
-    - "SPI" # lib from platformio
+    - Wire
+    - SPI
+    - "epshome=https://github.com/wemos/LOLIN_HP303B_Library.git"
   includes:
     - hp303b.h
 
-  
+esp8266:
+  board: d1_mini_pro
+
+# Here is other config for esphome
+
 sensor:
   - platform: custom
     lambda: |-
-      auto hp_sensor = new HP303BSensor();
-      App.register_component(hp_sensor);
-      return {hp_sensor};
-
+      auto my_sensor = new HP303BSensor();
+      App.register_component(my_sensor);
+      return {my_sensor->temperature_sensor, my_sensor->pressure_sensor};
     sensors:
-      name: "Barometric Pressure"
+    - name: "Temperature"
+      unit_of_measurement: °C
+      accuracy_decimals: 2
+    - name: "Barometric Pressure"
       icon: "mdi:gauge"
       unit_of_measurement: hPa
-      accuracy_decimals: 1
+      accuracy_decimals: 2
+
 ```
